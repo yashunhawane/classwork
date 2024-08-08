@@ -5,7 +5,7 @@ app.use(cors());
 
 let taxRate = 5;
 let discountPercentage = 10;
-let loyaltyRate = 2;
+let loyaltyRate = 0;
 
 //Endpoint 1: Calculate the total price of items in the cart
 
@@ -55,16 +55,7 @@ app.get("/estimate-delivery", (req, res) => {
 app.get("/shipping-cost", (req, res) => {
   let weight = parseFloat(req.query.weight);
   let distance = parseFloat(req.query.distance);
-  let shipppingCost = parseInt(weight * distance * 0.1);
-  res.send(shipppingCost.toString());
-});
-
-//Endpoint 6 : Calculate loyalty points earned from a purchase
-
-app.get("/loyalty-points", (req, res) => {
-  let purchaseAmount = parseFloat(req.query.purchaseAmount);
-  let loyaltyPoints = parseInt(purchaseAmount * loyaltyRate);
-  res.send(loyaltyPoints.toString());
+  let shipppingCost;
 });
 
 let PORT = 3000;
