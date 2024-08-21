@@ -20,7 +20,7 @@ let getGreeeting = (name) => {
   return `Hello, ${name}!`;
 };
 app.get("/greet", (req, res) => {
-  let userName = req.query.userName;
+  let userName = req.query.username;
   res.send(getGreeeting(userName));
 });
 
@@ -64,9 +64,9 @@ app.get("/sum", (req, res) => {
 let getSubscriptionStatus = (userName, isSubscribed) => {
   let result;
   if (isSubscribed === "true") {
-    result = `Hello, ${userName}! You are subscribed.`;
+    result = `${userName} is subscribed`;
   } else {
-    result = `Hello, ${userName}! You are not subscribed.`;
+    result = `${userName} is not subscribed.`;
   }
   return result;
 };
